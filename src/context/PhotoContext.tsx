@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import defaultProfileImg from '../assets/profile.png';
 
-// Custom SVG Monogram Avatar for Pankaj Chauhan — no external stock photo of strangers
+// Custom SVG Monogram Avatar for Pankaj Chauhan (secondary fallback)
 export const DEFAULT_AVATAR_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -22,7 +23,7 @@ export const DEFAULT_AVATAR_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://ww
   <text x="100" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="%23c0c1ff" text-anchor="middle" letter-spacing="1.5">PANKAJ CHAUHAN</text>
 </svg>`;
 
-export const DEFAULT_AVATAR_FALLBACK = DEFAULT_AVATAR_SVG;
+export const DEFAULT_AVATAR_FALLBACK = defaultProfileImg;
 
 interface PhotoContextType {
   photoUrl: string;
@@ -42,30 +43,21 @@ export const PhotoProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [photoUrl, setPhotoUrlState] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('pankaj_chauhan_portfolio_photo_v2') || localStorage.getItem('pankaj_chauhan_portfolio_photo_v1');
-      if (saved) return saved;
+      if (saved && !saved.startsWith('data:image/svg+xml')) return saved;
     }
-    return DEFAULT_AVATAR_SVG;
+    return defaultProfileImg;
   });
 
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
 
   const isCustomPhoto = photoUrl !== DEFAULT_AVATAR_SVG;
 
-  // Attempt to check if /profile.png exists on server if no custom photo saved
+  // Sync with defaultProfileImg if needed
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('pankaj_chauhan_portfolio_photo_v2') || localStorage.getItem('pankaj_chauhan_portfolio_photo_v1');
-      if (!saved) {
-        const baseUrl = import.meta.env.BASE_URL || './';
-        const profilePath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}profile.png`;
-        const testImg = new Image();
-        testImg.src = profilePath;
-        testImg.onload = () => {
-          setPhotoUrlState(profilePath);
-        };
-        testImg.onerror = () => {
-          // Keep DEFAULT_AVATAR_SVG
-        };
+      if (!saved || saved.startsWith('data:image/svg+xml')) {
+        setPhotoUrlState(defaultProfileImg);
       }
     }
   }, []);
@@ -82,9 +74,10 @@ export const PhotoProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const resetToDefault = () => {
-    setPhotoUrlState(DEFAULT_AVATAR_SVG);
+    setPhotoUrlState(defaultProfileImg);
     if (typeof window !== 'undefined') {
       localStorage.removeItem(LOCAL_STORAGE_KEY);
+      localStorage.removeItem('pankaj_chauhan_portfolio_photo_v1');
     }
   };
 
