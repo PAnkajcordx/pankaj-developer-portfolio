@@ -1,5 +1,6 @@
 import React from 'react';
 import { PROFILE } from '../data/portfolioData';
+import { useProfilePhoto, DEFAULT_AVATAR_FALLBACK } from '../context/PhotoContext';
 
 interface HeaderProps {
   onOpenResume: () => void;
@@ -7,6 +8,8 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenResume, activeSection }) => {
+  const { photoUrl } = useProfilePhoto();
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -20,16 +23,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenResume, activeSection }) =
         {/* Leading Identity / Brand */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-3 text-left group focus:outline-none"
+          className="flex items-center gap-3 text-left group focus:outline-none cursor-pointer"
         >
-          <div className="relative w-9 h-9 rounded-full p-[1.5px] bg-gradient-to-tr from-[#c0c1ff] to-[#7bd0ff] transition-transform duration-300 group-hover:scale-105">
+          <div className="relative w-9 h-9 rounded-full p-[1.5px] bg-gradient-to-tr from-[#c0c1ff] to-[#7bd0ff] transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
             <img
               className="w-full h-full object-cover rounded-full"
-              src={PROFILE.avatar}
+              src={photoUrl}
               alt={PROFILE.name}
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = DEFAULT_AVATAR_FALLBACK;
+              }}
             />
           </div>
+          
           <div className="flex flex-col">
             <span className="text-[17px] font-semibold text-[#e5e1e5] tracking-tight leading-none group-hover:text-white transition-colors">
               {PROFILE.name}

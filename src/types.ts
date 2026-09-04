@@ -32,12 +32,35 @@ export interface EducationItem {
   tagType: 'year' | 'type';
   icon: string;
   accentClass: string;
+  percentage?: string;
+}
+
+export interface FormalEducationRecord {
+  qualification: string;
+  institution: string;
+  year: string;
+  result: string;
+}
+
+export interface TechnicalQualificationRecord {
+  qualification: string;
+  institution: string;
+  year: string;
+  result: string;
+}
+
+export interface PracticalTrainingRecord {
+  title: string;
+  subtitle: string;
+  tasks: string[];
+  icon: string;
 }
 
 export interface ContactInfo {
   email: string;
   phone: string;
   location: string;
+  place: string;
   github: string;
   linkedin: string;
   instagram: string;

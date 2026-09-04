@@ -2,5 +2,7 @@
   "name": "Pankaj Chauhan - Developer Portfolio",
   "description": "Portfolio of Pankaj Chauhan, Web Developer and Computer Professional showcasing projects, skills, education, and contact channels.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

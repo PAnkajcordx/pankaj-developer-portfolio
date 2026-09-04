@@ -1,38 +1,53 @@
-import { SkillItem, ProjectItem, EducationItem, ContactInfo } from '../types';
+import {
+  SkillItem,
+  ProjectItem,
+  EducationItem,
+  ContactInfo,
+  FormalEducationRecord,
+  TechnicalQualificationRecord,
+  PracticalTrainingRecord
+} from '../types';
 
 export const PROFILE = {
   name: 'Pankaj Chauhan',
   rolePrimary: 'Web Developer',
-  roleSecondary: 'Computer Professional',
-  avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD8DG5D6KtdbPjm4hUsHcH5jS2Q5qcVK4Xr1wBd029QGbIiFu1DOn-pk9FHw2QVhGxVBF7MEodBk8g4dmk7i1XjkaeKQwK-gOMw2g5DKf85_6sHzeoSOjMCpEi3-TJ4fJSr49LrzV_16UXIi4bMlPicCpFF9Va7I2Taz-9wi2DyWnaJHuJEPr892UImNpD2LLRuxJhTFMaiuxDfeH1AbdvlFJ-Bfgev4ahHRCv0yQoAt73SSx4OXEUz',
-  taglineCapsule: 'DEVELOPER PORTFOLIO 2026 // NEXT-GEN WEB',
-  statusText: 'ONLINE // FOR HIRE',
-  heroBio: 'I am a passionate computer professional who loves learning new technologies and creating useful websites.',
+  roleSecondary: 'Computer Professional & B.A. Graduate',
+  avatar: '/profile.png',
+  taglineCapsule: 'DEVELOPER PORTFOLIO 2026 // VERIFIED PROFILE',
+  statusText: 'ONLINE // OPEN FOR OPPORTUNITIES',
+  careerObjective:
+    'Motivated B.A. graduate with ITI Fitter, O Level and CCC qualifications. Possesses knowledge of computer applications, MS Office, basic programming and technical operations. Seeking an entry-level Computer, Office Administration, Data Entry, Technical Support or Fitter role to apply skills and grow professionally.',
+  heroBio:
+    'Motivated B.A. graduate with ITI Fitter, O Level and CCC qualifications. Skilled in web development, computer applications, MS Office, data management, and technical operations.',
   about: {
     badge: 'ARCHITECTURAL MANIFESTO',
     paragraphs: [
-      'Hello! My name is Pankaj Chauhan. I am a computer professional who is interested in web development and technology.',
-      'I have completed my Graduation and have also completed ITI, O Level and CCC. I am continuously improving my technical and communication skills.',
-      'My goal is to build a successful career in the IT field and create useful and professional web applications.'
+      'Hello! My name is Pankaj Chauhan. I am a motivated B.A. graduate, web developer, and computer professional based in Mau, Uttar Pradesh.',
+      'I have graduated from Maharaja Suhel Dev University, Azamgarh (68.69%) and completed ITI in Fitter trade from Ramugrah Singh Private ITI with 86.25% (Distinction), along with recognized NIELIT O Level and CCC certifications.',
+      'My versatility bridges modern web engineering (HTML5, CSS3, JavaScript, Python) with practical office computing (MS Word, MS Excel, PowerPoint, digital documentation) and mechanical technical operations. I am eager to apply my diverse capabilities in computer administration, technical operations, and software development.'
     ],
     capabilities: [
       'WEB DEVELOPMENT',
-      'RESPONSIVE DESIGN',
-      'IOT SYSTEMS',
-      'PYTHON APPLICATIONS'
+      'MS OFFICE & EXCEL',
+      'DATA ENTRY & ADMIN',
+      'ITI FITTER & WORKSHOP OPS',
+      'NIELIT O LEVEL',
+      'CCC CERTIFIED',
+      'PYTHON PROGRAMMING',
+      'DIGITAL DOCUMENTATION'
     ]
   },
   metrics: [
-    { label: 'Core Projects', value: '3+', colorClass: 'text-[#7bd0ff]' },
-    { label: 'Focus Scope', value: 'Full Stack', colorClass: 'text-[#c0c1ff]' },
-    { label: 'Location Hub', value: 'UP, India', colorClass: 'text-[#ddb7ff]' }
+    { label: 'Graduation Degree', value: 'B.A. (68.69%)', colorClass: 'text-[#7bd0ff]' },
+    { label: 'Technical ITI Score', value: '86.25%', colorClass: 'text-[#c0c1ff]' },
+    { label: 'Location Hub', value: 'Mau, UP', colorClass: 'text-[#ddb7ff]' }
   ]
 };
 
 export const SKILLS: SkillItem[] = [
   {
     id: 'html',
-    name: 'HTML',
+    name: 'HTML5',
     subtitle: 'Website Structure',
     category: 'Frontend',
     icon: 'language',
@@ -42,8 +57,8 @@ export const SKILLS: SkillItem[] = [
   },
   {
     id: 'css',
-    name: 'CSS',
-    subtitle: 'Website Design',
+    name: 'CSS3',
+    subtitle: 'Website Design & Layout',
     category: 'Frontend',
     icon: 'palette',
     percentage: 88,
@@ -63,7 +78,7 @@ export const SKILLS: SkillItem[] = [
   {
     id: 'python',
     name: 'Python',
-    subtitle: 'Programming',
+    subtitle: 'Programming Concepts',
     category: 'Programming',
     icon: 'code',
     percentage: 78,
@@ -73,23 +88,44 @@ export const SKILLS: SkillItem[] = [
   {
     id: 'ms-word',
     name: 'MS Word',
-    subtitle: 'Document Creation',
+    subtitle: 'Document Creation & Formatting',
     category: 'Office Tool',
     icon: 'description',
-    percentage: 90,
+    percentage: 92,
     gradientClass: 'from-[#00a6e0] to-[#7bd0ff]',
     glowColor: 'rgba(59,130,246,0.3)'
   },
   {
     id: 'ms-excel',
     name: 'MS Excel',
-    subtitle: 'Data & Spreadsheet',
+    subtitle: 'Data Entry & Spreadsheets',
     category: 'Office Tool',
     icon: 'bar_chart',
-    percentage: 85,
+    percentage: 88,
     gradientClass: 'from-[#7bd0ff] to-[#c0c1ff]',
     glowColor: 'rgba(16,185,129,0.3)'
   }
+];
+
+export const RESUME_COMPUTER_SKILLS = [
+  'MS Word',
+  'MS Excel',
+  'PowerPoint',
+  'Internet Applications',
+  'Computer Fundamentals',
+  'Data Entry',
+  'File Management',
+  'Basic Programming Concepts',
+  'Digital Documentation'
+];
+
+export const RESUME_TECHNICAL_SKILLS = [
+  'Fitting Tools',
+  'Measuring Instruments (Vernier Caliper, Micrometer, Steel Rule)',
+  'Workshop Safety',
+  'Basic Machine Fitting',
+  'Maintenance Operations',
+  'Technical Documentation'
 ];
 
 export const PROJECTS: ProjectItem[] = [
@@ -99,7 +135,8 @@ export const PROJECTS: ProjectItem[] = [
     categoryTag: 'WEB ECOSYSTEM',
     title: 'Personal Portfolio Website',
     description: 'A responsive personal portfolio website created using HTML, CSS and JavaScript.',
-    detailedDescription: 'Engineered as a high-performance modern showcase with fluid responsiveness, intuitive layout hierarchy, and optimized asset delivery for desktop and mobile viewport environments.',
+    detailedDescription:
+      'Engineered as a high-performance modern showcase with fluid responsiveness, intuitive layout hierarchy, and optimized asset delivery for desktop and mobile viewport environments.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     icon: 'language',
     accentColor: '#7bd0ff',
@@ -117,7 +154,8 @@ export const PROJECTS: ProjectItem[] = [
     categoryTag: 'EMBEDDED IOT',
     title: 'Smart Parking System',
     description: 'An IoT-based smart parking project using Arduino and sensors to detect parking spaces.',
-    detailedDescription: 'An embedded systems hardware and software prototype utilizing ultrasonic distance sensors, microcontrollers, and real-time slot occupancy visualization to eliminate parking congestion.',
+    detailedDescription:
+      'An embedded systems hardware and software prototype utilizing ultrasonic distance sensors, microcontrollers, and real-time slot occupancy visualization to eliminate parking congestion.',
     tags: ['Arduino', 'IoT', 'Sensors'],
     icon: 'directions_car',
     accentColor: '#c0c1ff',
@@ -135,8 +173,10 @@ export const PROJECTS: ProjectItem[] = [
     projectNumber: 'PROJECT 03',
     categoryTag: '2D GAME ENGINE',
     title: 'Highway Car Dodge Game',
-    description: 'A 2D car dodge game built with Python and Pygame. Features coins, power-ups, nitro boost, levels, high score and collision effects.',
-    detailedDescription: 'An arcade-style racing survival experience engineered in Python utilizing Pygame frame loops, bounding-box collision detection algorithms, animated sprite sheets, and sound effects.',
+    description:
+      'A 2D car dodge game built with Python and Pygame. Features coins, power-ups, nitro boost, levels, high score and collision effects.',
+    detailedDescription:
+      'An arcade-style racing survival experience engineered in Python utilizing Pygame frame loops, bounding-box collision detection algorithms, animated sprite sheets, and sound effects.',
     tags: ['Python', 'Pygame'],
     icon: 'sports_esports',
     accentColor: '#ddb7ff',
@@ -150,67 +190,148 @@ export const PROJECTS: ProjectItem[] = [
   }
 ];
 
+// Education items for the UI cards
 export const EDUCATION: EducationItem[] = [
   {
-    id: 'grad',
-    title: 'Graduation',
-    institution: 'Azamgarh University',
-    tag: '2024',
+    id: 'ba-grad',
+    title: 'Bachelor of Arts (B.A.)',
+    institution: 'Maharaja Suhel Dev University, Azamgarh',
+    tag: '2025 • 68.69%',
     tagType: 'year',
     icon: 'school',
-    accentClass: 'text-[#c0c1ff] bg-[#8083ff]/10 border-[#8083ff]/20'
+    accentClass: 'text-[#c0c1ff] bg-[#8083ff]/10 border-[#8083ff]/20',
+    percentage: '68.69%'
   },
   {
-    id: 'iti',
+    id: 'iti-fitter',
     title: 'ITI - Fitter',
-    institution: 'Industrial Training Institute',
-    tag: 'Vocational',
-    tagType: 'type',
+    institution: 'Ramugrah Singh Private ITI',
+    tag: '2024 • 86.25%',
+    tagType: 'year',
     icon: 'build',
-    accentClass: 'text-[#7bd0ff] bg-[#7bd0ff]/10 border-[#7bd0ff]/20'
+    accentClass: 'text-[#7bd0ff] bg-[#7bd0ff]/10 border-[#7bd0ff]/20',
+    percentage: '86.25%'
   },
   {
     id: 'olevel',
-    title: 'O Level',
-    institution: 'NIELIT Computer Course',
-    tag: 'NIELIT',
-    tagType: 'type',
+    title: 'NIELIT O Level',
+    institution: 'NIELIT Computer Certification',
+    tag: '2026 • Certified',
+    tagType: 'year',
     icon: 'laptop_mac',
-    accentClass: 'text-[#ddb7ff] bg-[#b76dff]/10 border-[#b76dff]/20'
+    accentClass: 'text-[#ddb7ff] bg-[#b76dff]/10 border-[#b76dff]/20',
+    percentage: 'Certified'
   },
   {
     id: 'ccc',
-    title: 'CCC',
-    institution: 'Course on Computer Concepts',
-    tag: 'Certificate',
-    tagType: 'type',
+    title: 'CCC (Computer Concepts)',
+    institution: 'NIELIT Computer Certification',
+    tag: '2024 • Certified',
+    tagType: 'year',
     icon: 'desktop_windows',
-    accentClass: 'text-[#7bd0ff] bg-[#00a6e0]/10 border-[#00a6e0]/20'
+    accentClass: 'text-[#7bd0ff] bg-[#00a6e0]/10 border-[#00a6e0]/20',
+    percentage: 'Certified'
   },
   {
     id: '12th',
-    title: '12th',
-    institution: 'Higher Secondary Education',
-    tag: 'High School',
-    tagType: 'type',
+    title: '12th / Intermediate',
+    institution: 'R.K.H.S.S., Sarai Sadi, Mau',
+    tag: '2022 • 60%',
+    tagType: 'year',
     icon: 'menu_book',
-    accentClass: 'text-[#c0c1ff] bg-[#8083ff]/10 border-[#8083ff]/20'
+    accentClass: 'text-[#c0c1ff] bg-[#8083ff]/10 border-[#8083ff]/20',
+    percentage: '60%'
   },
   {
     id: '10th',
-    title: '10th',
-    institution: 'Secondary Education',
-    tag: 'Secondary',
-    tagType: 'type',
+    title: '10th / High School',
+    institution: 'R.K.H.S.S., Sarai Sadi, Mau',
+    tag: '2020 • 80%',
+    tagType: 'year',
     icon: 'auto_stories',
-    accentClass: 'text-[#c7c4d7] bg-[#39393c]/20 border-[#464554]/30'
+    accentClass: 'text-[#c7c4d7] bg-[#39393c]/20 border-[#464554]/30',
+    percentage: '80%'
   }
+];
+
+// Exact formal records from user's official resume
+export const FORMAL_EDUCATION_RECORDS: FormalEducationRecord[] = [
+  {
+    qualification: 'Bachelor of Arts (B.A.)',
+    institution: 'Maharaja Suhel Dev University, Azamgarh',
+    year: '2025',
+    result: '68.69%'
+  },
+  {
+    qualification: '12th / Intermediate',
+    institution: 'R.K.H.S.S., Sarai Sadi, Mau',
+    year: '2022',
+    result: '60%'
+  },
+  {
+    qualification: '10th / High School',
+    institution: 'R.K.H.S.S., Sarai Sadi, Mau',
+    year: '2020',
+    result: '80%'
+  }
+];
+
+export const TECHNICAL_QUALIFICATIONS_RECORDS: TechnicalQualificationRecord[] = [
+  {
+    qualification: 'ITI - Fitter',
+    institution: 'Ramugrah Singh Private ITI',
+    year: '2024',
+    result: '86.25%'
+  },
+  {
+    qualification: 'CCC',
+    institution: 'NIELIT',
+    year: '2024',
+    result: 'Certified'
+  },
+  {
+    qualification: 'NIELIT O Level',
+    institution: 'NIELIT',
+    year: '2026',
+    result: 'Certified'
+  }
+];
+
+export const PRACTICAL_TRAINING_RECORDS: PracticalTrainingRecord[] = [
+  {
+    title: 'ITI Fitter Practical Training',
+    subtitle: 'Mechanical & Precision Engineering Workshop',
+    icon: 'handyman',
+    tasks: [
+      'Performed marking, cutting, drilling, filing and fitting tasks.',
+      'Used measuring tools such as vernier caliper, micrometer and steel rule.',
+      'Maintained tools and strictly followed workshop safety procedures.'
+    ]
+  },
+  {
+    title: 'Computer Applications',
+    subtitle: 'Digital Office & Administrative Work',
+    icon: 'terminal',
+    tasks: [
+      'Created documents, spreadsheets and presentations using MS Office (Word, Excel, PowerPoint).',
+      'Familiar with digital documentation, email communication and internet-based work.',
+      'Applied computer fundamentals, data entry workflows, and basic programming concepts.'
+    ]
+  }
+];
+
+export const STRENGTHS = [
+  'Quick learner and adaptable',
+  'Hardworking, punctual and responsible',
+  'Teamwork and communication',
+  'Willing to learn new tools and technologies'
 ];
 
 export const CONTACT_INFO: ContactInfo = {
   email: 'pankajchauhan2736@gmail.com',
   phone: '+91 7706855166',
-  location: 'Uttar Pradesh, India',
+  location: 'Mau, Uttar Pradesh, India',
+  place: 'Mau, Uttar Pradesh',
   github: 'https://github.com/PAnkajcordx',
   linkedin: 'https://www.linkedin.com',
   instagram: 'https://www.instagram.com'

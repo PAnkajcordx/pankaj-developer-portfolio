@@ -1,5 +1,6 @@
 import React from 'react';
 import { PROFILE } from '../data/portfolioData';
+import { useProfilePhoto, DEFAULT_AVATAR_FALLBACK } from '../context/PhotoContext';
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -7,13 +8,45 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenResume, onContactClick }) => {
+  const { photoUrl } = useProfilePhoto();
+
   return (
     <section className="min-h-[720px] flex flex-col justify-center items-center text-center py-12 md:py-20 relative">
       {/* Pulsing cosmic orb behind hero headline */}
       <div className="absolute w-80 h-80 bg-indigo-600/15 rounded-full blur-[100px] pointer-events-none -top-10 left-1/2 -translate-x-1/2 animate-subtle-pulse" />
 
+      {/* Featured Portrait Showcase with Interactive Glow */}
+      <div className="flex flex-col items-center mb-6">
+        <div className="relative group">
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl p-[2px] bg-gradient-to-tr from-[#7bd0ff] via-[#c0c1ff] to-[#ddb7ff] shadow-[0_0_35px_rgba(123,208,255,0.25)] transition-transform duration-300 group-hover:scale-105">
+            <div className="w-full h-full rounded-[22px] overflow-hidden bg-[#131316] relative">
+              <img
+                src={photoUrl}
+                alt={PROFILE.name}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = DEFAULT_AVATAR_FALLBACK;
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Live Availability Badge */}
+          <div className="absolute -bottom-2 -right-2 px-2.5 py-0.5 rounded-full bg-[#131316]/90 border border-emerald-500/40 shadow-lg flex items-center gap-1.5 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+            <span className="font-mono text-[9px] text-emerald-300 font-semibold tracking-wider">
+              VERIFIED
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Keynote Tagline Capsule */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-surface border border-[#464554]/30 mb-6 specular-rim transition-all duration-300 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-surface border border-[#464554]/30 mb-5 specular-rim transition-all duration-300 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
         <span className="material-symbols-outlined text-[#7bd0ff] text-[16px]">stars</span>
         <span className="font-mono text-[11px] md:text-[12px] text-[#7bd0ff] tracking-wider font-medium">
           {PROFILE.taglineCapsule}

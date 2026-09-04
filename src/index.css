@@ -94,3 +94,25 @@
   -webkit-font-smoothing: antialiased;
 }
 
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, main, nav, canvas, .ambient-glow, button {
+    display: none !important;
+  }
+  .fixed.inset-0.z-50 {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+  }
+  .glass-surface {
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+    padding: 0 !important;
+  }
+}
+

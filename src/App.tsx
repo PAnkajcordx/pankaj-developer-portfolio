@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { PhotoProvider } from './context/PhotoContext';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -62,52 +63,54 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#131316] text-[#e5e1e5] min-h-screen relative overflow-x-hidden selection:bg-[#8083ff] selection:text-white">
-      {/* VisionOS Animated Cosmic Background & Particle Matrix */}
-      <AnimatedBackground />
+    <PhotoProvider>
+      <div className="bg-[#131316] text-[#e5e1e5] min-h-screen relative overflow-x-hidden selection:bg-[#8083ff] selection:text-white">
+        {/* VisionOS Animated Cosmic Background & Particle Matrix */}
+        <AnimatedBackground />
 
-      {/* Top Header / App Bar */}
-      <Header
-        onOpenResume={() => setIsResumeOpen(true)}
-        activeSection={activeSection}
-      />
-
-      {/* Main Stage Canvas */}
-      <main className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 pt-20 pb-24 md:pb-28">
-        <Hero
+        {/* Top Header / App Bar */}
+        <Header
           onOpenResume={() => setIsResumeOpen(true)}
-          onContactClick={() => handleNavigate('contact')}
+          activeSection={activeSection}
         />
 
-        <About />
+        {/* Main Stage Canvas */}
+        <main className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 md:px-12 pt-20 pb-24 md:pb-28">
+          <Hero
+            onOpenResume={() => setIsResumeOpen(true)}
+            onContactClick={() => handleNavigate('contact')}
+          />
 
-        <Skills />
+          <About />
 
-        <Projects onSelectProject={(p) => setSelectedProject(p)} />
+          <Skills />
 
-        <Education />
+          <Projects onSelectProject={(p) => setSelectedProject(p)} />
 
-        <Contact />
+          <Education />
 
-        <Footer />
-      </main>
+          <Contact />
 
-      {/* Mobile Floating Bottom Navigation */}
-      <BottomNav
-        activeSection={activeSection}
-        onNavigate={handleNavigate}
-      />
+          <Footer />
+        </main>
 
-      {/* Modals */}
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
+        {/* Mobile Floating Bottom Navigation */}
+        <BottomNav
+          activeSection={activeSection}
+          onNavigate={handleNavigate}
+        />
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
-    </div>
+        {/* Modals */}
+        <ResumeModal
+          isOpen={isResumeOpen}
+          onClose={() => setIsResumeOpen(false)}
+        />
+
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      </div>
+    </PhotoProvider>
   );
 }
