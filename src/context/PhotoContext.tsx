@@ -56,10 +56,12 @@ export const PhotoProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('pankaj_chauhan_portfolio_photo_v2') || localStorage.getItem('pankaj_chauhan_portfolio_photo_v1');
       if (!saved) {
+        const baseUrl = import.meta.env.BASE_URL || './';
+        const profilePath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}profile.png`;
         const testImg = new Image();
-        testImg.src = '/profile.png';
+        testImg.src = profilePath;
         testImg.onload = () => {
-          setPhotoUrlState('/profile.png');
+          setPhotoUrlState(profilePath);
         };
         testImg.onerror = () => {
           // Keep DEFAULT_AVATAR_SVG
